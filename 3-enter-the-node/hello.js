@@ -1,1 +1,16 @@
-console.log("Hello from Node!");
+var express = require("express");
+var port = 3000;
+var app = express();
+
+app.get("/", function(req, res){
+  res.send("Hello from node!");
+});
+
+app.get("/greet/:name", function(req, res) {
+  var name= req.params.name
+  res.send("Hi, " + name + "!")
+})
+
+app.listen(port, function() {
+  console.log("Listening on port" + port.toString());
+})
