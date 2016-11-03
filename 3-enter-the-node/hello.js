@@ -11,6 +11,8 @@ app.get("/greet/:name", function(req, res) {
   res.send("Hi, " + name + "!")
 })
 
+app.use('/static', express.static('public'));
+
 app.listen(port, function() {
   console.log("Listening on port" + port.toString());
 })
