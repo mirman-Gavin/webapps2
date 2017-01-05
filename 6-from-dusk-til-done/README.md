@@ -49,7 +49,7 @@ Our Todos app is known as a single-page web app, meaning we won't have a bunch o
 page to contain our views and link our logical JS.
 
 ## Data
-There are a _bunch_ of ways to handle data flow in JavaScript. Many of these are full-fledged JavaScript frameworks—there are too many to list. However, as we're learning how JavaScript and HTML interact, I want to stick with trust ol' jQuery. It turns out jQuery has a [`$.ajax()`](http://api.jquery.com/jQuery.ajax/) method that allows us to retrieve JSON-formatted information from our server. From there, we should be able to create functions that display our Todos and modify the list with `GET`,`POST`, `PUT`, and `DELETE` requests back to our API endpoints (`/todos`, `/todos/:id`).
+There are a _bunch_ of ways to handle data flow in JavaScript. Many of these are full-fledged JavaScript frameworks—there are too many to list. However, as we're learning how JavaScript and HTML interact, I want to stick with trusty ol' jQuery. It turns out jQuery has a [`$.ajax()`](http://api.jquery.com/jQuery.ajax/) method that allows us to retrieve JSON-formatted information from our server. From there, we should be able to create functions that display our Todos and modify the list with `GET`,`POST`, `PUT`, and `DELETE` requests back to our API endpoints (`/todos`, `/todos/:id`).
 
 ## Objectives
 ### Primary Objective: GET/PUT/POST/DELETE
