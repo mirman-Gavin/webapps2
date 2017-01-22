@@ -1,17 +1,18 @@
 import $ from "jquery";
+import todoListItem from "./todoListItem";
 var todos;
 
-function getTodos() {
+function getTodos(callback) {
   return $.ajax(
     "/todos",
     {
-      method: "GET"
+      type: "GET"
     }
   )
   .done( (data) => {
     // This is bad and I should feel bad for writing it. Why?
-    todos = data;
-    console.log(data);
+    console.log("success!")
+    callback(data);
   })
   .fail( () => {
     console.error("Something bad happened");
@@ -20,5 +21,12 @@ function getTodos() {
 
 
 $(document).ready( () => {
-  getTodos();
+    getTodos((data) => {
+      todos = data;
+      todos.forEach((todo) => {
+        $("#root").append(
+          todoListItem(todo)
+        );
+      })
+  });
 })
