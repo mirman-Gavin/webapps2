@@ -2,11 +2,20 @@ import $ from "jquery";
 import todoListItem from "./todoListItem";
 import newTodoForm from "./newTodoForm";
 
-
+function updateTodos(todos) {
+  todos.forEach((todo) => {
+    $("#root").append(
+      todoListItem(todo)
+    );
+  });
+  $("#root").append(
+    newTodoForm()
+  )
+}
 
 export default function reducer(state, action) {
   switch(action.type) {
-    case "RETRIVE_TODOS":
+    case "RETRIEVE_TODOS":
     return $.ajax(
       "/todos",
       {
@@ -34,7 +43,7 @@ export default function reducer(state, action) {
     })
     case "ADD_TODO":
     return $.ajax({
-      url: "/todos"
+      url: "/todos",
       method: "POST",
       contentType: "application/json",
       data: JSON.stringify(action.updatedTodo)
@@ -48,7 +57,7 @@ export default function reducer(state, action) {
       url: `/todos/${action.id}`,
       type: "PUT",
       contentType: "application/json",
-      data JSON.stringify(action.editedTodo)
+      data: JSON.stringify(action.editedTodo)
     })
     .done((res) => {
       updateTodos(res);

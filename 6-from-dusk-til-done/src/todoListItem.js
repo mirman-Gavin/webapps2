@@ -1,5 +1,5 @@
 import $ from "jquery";
-
+import {deleteTodo,editTodo} from "./actions";
 export default function todoListitem(todo) {
   return $(document.createElement("div"))
     .append(
@@ -12,7 +12,7 @@ export default function todoListitem(todo) {
       .attr("type","checkbox")
       .attr("id",`todo-${todo.id}-completed`)
       .attr("checked", todo.completed)
-      click((e) => {
+      .click((e) => {
         const editedTodo = {
           id: todo.id,
           text: todo.text,
@@ -35,6 +35,14 @@ export default function todoListitem(todo) {
       .attr("type","text")
       .attr("placeholder","mm/dd/yyyy")
       .attr("id","dates")
+    )
+    .append(
+      $(document.createElement("input"))
+      .attr("placeholder","✐")
+      .attr("type","button")
+      .click(() => {
+
+      })
     )
     .attr("id",`todo-${todo.id}`)
     .addClass("todo");
